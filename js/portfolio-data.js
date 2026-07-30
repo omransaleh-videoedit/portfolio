@@ -11,7 +11,7 @@
    - category   : string  — used to auto-generate the filter pills
                               (use the same spelling across items you
                               want grouped together, e.g. "Podcast")
-   - videoSrc   : string  — path or URL to the actual video file (.mp4 or Youtube Embed)
+   - videoSrc   : string  — path or URL to the actual video file (.mp4)
    - posterSrc  : string  — path or URL to a thumbnail image shown
                               before the video plays. Leave "" to fall
                               back to a generated gradient placeholder.
@@ -21,18 +21,18 @@
 
 const PORTFOLIO_ITEMS = [
   {
-    title: "نموذج مونتاج عربي — سينمائي ومؤثرات بصيرة",
-    category: "مونتاج عربي احترافي",
+    title: "Arabic Video Edit — High Retention",
+    category: "Arabic Content",
     videoSrc: "assets/videos/reel-01.mp4",
     posterSrc: "",
-    client: "صانع محتوى عربي"
+    client: "Arabic Creator"
   },
   {
-    title: "مقطع بودكاست عربي — دقة عالية ونصوص متحركة",
-    category: "مونتاج عربي احترافي",
+    title: "Arabic Podcast Clip — Subtitles & FX",
+    category: "Arabic Content",
     videoSrc: "assets/videos/reel-02.mp4",
     posterSrc: "",
-    client: "بودكاست عربي"
+    client: "Arabic Podcast"
   },
   {
     title: "Podcast Highlight — \"The Focus Trap\"",
@@ -77,6 +77,3 @@ const PORTFOLIO_ITEMS = [
     client: "Personal account"
   }
 ];
-
-/* Exposed for main.js. If you ever split this into a real module
-   system (e.g. bundler), swap this line for: export default PORTFOLIO_ITEMS; */
