@@ -11,21 +11,29 @@
    - category   : string  — used to auto-generate the filter pills
                               (use the same spelling across items you
                               want grouped together, e.g. "Podcast")
-   - videoSrc   : string  — path or URL to the actual video file (.mp4)
-                              Local example: "assets/videos/reel-01.mp4"
+   - videoSrc   : string  — path or URL to the actual video file (.mp4 or Youtube Embed)
    - posterSrc  : string  — path or URL to a thumbnail image shown
                               before the video plays. Leave "" to fall
                               back to a generated gradient placeholder.
    - client     : string  — optional, shown as a small tag (e.g. niche
                               or platform). Leave "" to hide it.
-
-   HOW TO ADD A NEW VIDEO
-   1. Drop the .mp4 file into assets/videos/
-   2. (Optional) drop a matching thumbnail into assets/images/
-   3. Copy one of the objects below, update the fields, done.
    ============================================================ */
 
 const PORTFOLIO_ITEMS = [
+  {
+    title: "نموذج مونتاج عربي — سينمائي ومؤثرات بصيرة",
+    category: "مونتاج عربي احترافي",
+    videoSrc: "assets/videos/reel-01.mp4",
+    posterSrc: "",
+    client: "صانع محتوى عربي"
+  },
+  {
+    title: "مقطع بودكاست عربي — دقة عالية ونصوص متحركة",
+    category: "مونتاج عربي احترافي",
+    videoSrc: "assets/videos/reel-02.mp4",
+    posterSrc: "",
+    client: "بودكاست عربي"
+  },
   {
     title: "Podcast Highlight — \"The Focus Trap\"",
     category: "Podcast",
