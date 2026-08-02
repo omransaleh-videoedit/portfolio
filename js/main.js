@@ -1,21 +1,17 @@
 /* ============================================================
    MAIN.JS
    Everything here is vanilla JS, no build step, no dependencies.
-   Organized by feature so you can find/edit one piece without
-   touching the rest.
    ============================================================ */
 
 (function () {
   "use strict";
 
-  /* Respect users who've asked their OS for reduced motion.
-     Several features below check this before animating. */
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
   /* ----------------------------------------------------------
-     1. SMOOTH SCROLL for in-page nav links
+     1. SMOOTH SCROLL
      ---------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -31,10 +27,7 @@
   });
 
   /* ----------------------------------------------------------
-     2. PLAYHEAD RAIL — active marker + scroll progress fill
-     Mirrors a video editor's timeline scrubber: the fill line
-     tracks how far through the "reel" (page) you are, and each
-     marker lights up while its section is in view.
+     2. PLAYHEAD RAIL
      ---------------------------------------------------------- */
   const sections = ["hero", "about", "services", "portfolio", "why", "contact"]
     .map((id) => document.getElementById(id))
@@ -53,9 +46,6 @@
     if (mobileRailFill) mobileRailFill.style.width = `${progress * 100}%`;
   }
 
-  /* IntersectionObserver marks whichever section is most in-view
-     as the "active" marker — cheaper than measuring on every
-     scroll tick. */
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -75,9 +65,6 @@
 
   /* ----------------------------------------------------------
      3. HERO AMBIENT WAVEFORM
-     Purely decorative bars behind the hero headline, generated
-     once so the markup stays out of the HTML. Skips animation
-     entirely for reduced-motion users (bars render static).
      ---------------------------------------------------------- */
   const heroWaveform = document.getElementById("heroWaveform");
   if (heroWaveform) {
@@ -86,9 +73,6 @@
     for (let i = 0; i < BAR_COUNT; i++) {
       const bar = document.createElement("span");
       bar.className = "hero__waveform-bar";
-      /* Randomized height + animation delay/duration gives an
-         organic, non-looping-obviously feel rather than a single
-         repeating sine wave. */
       const height = 15 + Math.round(Math.random() * 70);
       bar.style.setProperty("--h", `${height}%`);
       if (!prefersReducedMotion) {
@@ -102,8 +86,6 @@
 
   /* ----------------------------------------------------------
      4. SCROLL-TRIGGERED REVEALS
-     Adds .is-visible to any [data-reveal] element the first time
-     it enters the viewport. CSS handles the actual transition.
      ---------------------------------------------------------- */
   const revealTargets = document.querySelectorAll(
     ".section-head, .about__grid, .clip-card, .why__row, .contact__grid, .portfolio__intro, .portfolio__filters"
@@ -124,10 +106,7 @@
   revealTargets.forEach((el) => revealObserver.observe(el));
 
   /* ----------------------------------------------------------
-     5. PORTFOLIO GALLERY — rendered from js/portfolio-data.js
-     Rebuilding this from a data array (rather than hand-written
-     HTML per video) is what makes the section "easy to update
-     later": editing that one file is the entire workflow.
+     5. PORTFOLIO GALLERY
      ---------------------------------------------------------- */
   const grid = document.getElementById("portfolioGrid");
   const filtersBar = document.getElementById("portfolioFilters");
@@ -149,34 +128,19 @@
 
     grid.innerHTML = visible
       .map((item, index) => {
-        /* When no poster image is supplied, fall back to a
-           deterministic gradient placeholder (derived from the
-           index) instead of a broken image icon. */
         const posterStyle = item.posterSrc
-       function openLightbox(item) {
-    if (!lightbox || !item) return;
-    lightboxCaption.textContent = item.title;
-    
-    // فحص هل الرابط من يوتيوب أم ملف mp4
-    if (item.videoSrc.includes("youtube.com") || item.videoSrc.includes("youtu.be")) {
-      let embedUrl = item.videoSrc;
-      if (!embedUrl.includes("autoplay=1")) {
-        embedUrl += (embedUrl.includes("?") ? "&" : "?") + "autoplay=1";
-      }
-      lightboxVideo.outerHTML = `<iframe id="lightboxVideo" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; min-height:400px; border-radius:12px;"></iframe>`;
-    } else {
-      lightboxVideo.outerHTML = `<video id="lightboxVideo" src="${item.videoSrc}" controls autoplay style="width:100%; height:100%;"></video>`;
-    }
+          ? `style="background-image:url('${item.posterSrc}')"`
+          : `style="background-image: var(--placeholder-${(index % 4) + 1})"`;
 
-    const updatedVideo = document.getElementById("lightboxVideo");
-    lightbox.classList.add("is-open");
-    lightbox.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scroll");
-    
-    if (updatedVideo.tagName === "VIDEO") {
-      updatedVideo.play().catch(() => {});
-    }
-  }
+        return `
+        <article class="video-card" data-index="${index}">
+          <button class="video-card__frame" ${posterStyle} aria-label="Play: ${item.title}">
+            <span class="video-card__play" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span class="video-card__ratio-tag">9:16</span>
+          </button>
+          <div class="video-card__meta">
             <p class="video-card__title">${item.title}</p>
             ${item.client ? `<p class="video-card__client">${item.client}</p>` : ""}
           </div>
@@ -184,13 +148,11 @@
       })
       .join("");
 
-    /* Re-observe newly created cards so they still fade in nicely */
     grid.querySelectorAll(".video-card").forEach((card) => {
       card.setAttribute("data-reveal", "");
       revealObserver.observe(card);
     });
 
-    /* Wire up lightbox triggers on the freshly rendered buttons */
     grid.querySelectorAll(".video-card__frame").forEach((btn) => {
       btn.addEventListener("click", () => {
         const idx = Number(btn.closest(".video-card").dataset.index);
@@ -215,7 +177,7 @@
   }
 
   /* ----------------------------------------------------------
-     6. LIGHTBOX — plays the selected video full-size
+     6. LIGHTBOX (معدل ليدعم اليوتيوب + الفيديوهات العادية)
      ---------------------------------------------------------- */
   const lightbox = document.getElementById("lightbox");
   const lightboxVideo = document.getElementById("lightboxVideo");
@@ -224,15 +186,26 @@
 
   function openLightbox(item) {
     if (!lightbox || !item) return;
-    lightboxVideo.src = item.videoSrc;
     lightboxCaption.textContent = item.title;
+    
+    if (item.videoSrc.includes("youtube.com") || item.videoSrc.includes("youtu.be")) {
+      let embedUrl = item.videoSrc;
+      if (!embedUrl.includes("autoplay=1")) {
+        embedUrl += (embedUrl.includes("?") ? "&" : "?") + "autoplay=1";
+      }
+      lightboxVideo.outerHTML = `<iframe id="lightboxVideo" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; min-height:400px; border-radius:12px;"></iframe>`;
+    } else {
+      lightboxVideo.outerHTML = `<video id="lightboxVideo" src="${item.videoSrc}" controls autoplay style="width:100%; height:100%;"></video>`;
+    }
+
+    const updatedVideo = document.getElementById("lightboxVideo");
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
-    /* Attempt to play; ignore rejection (autoplay policies) since
-       the user just clicked, but the file may not exist yet in a
-       fresh clone of this template. */
-    lightboxVideo.play().catch(() => {});
+    
+    if (updatedVideo.tagName === "VIDEO") {
+      updatedVideo.play().catch(() => {});
+    }
   }
 
   function closeLightbox() {
@@ -240,9 +213,17 @@
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
-    lightboxVideo.pause();
-    lightboxVideo.removeAttribute("src");
-    lightboxVideo.load();
+    
+    const currentVid = document.getElementById("lightboxVideo");
+    if (currentVid) {
+      if (currentVid.tagName === "VIDEO") {
+        currentVid.pause();
+        currentVid.removeAttribute("src");
+        currentVid.load();
+      } else {
+        currentVid.src = "";
+      }
+    }
   }
 
   if (lightbox) {
@@ -257,10 +238,6 @@
 
   /* ----------------------------------------------------------
      7. CONTACT FORM
-     No backend is wired up yet. This validates the fields and
-     shows a status message. To actually send email, swap the
-     body of handleSubmit for a fetch() call to your form
-     endpoint (Formspree, Getform, your own API, etc).
      ---------------------------------------------------------- */
   const form = document.getElementById("contactForm");
   const statusEl = document.getElementById("contactStatus");
@@ -278,14 +255,6 @@
         return;
       }
 
-      /* --- Replace this block with a real submission --------
-         Example using Formspree:
-         fetch("https://formspree.io/f/your-id", {
-           method: "POST",
-           headers: { "Accept": "application/json" },
-           body: new FormData(form)
-         }).then(...)
-         --------------------------------------------------- */
       statusEl.classList.remove("is-error");
       statusEl.textContent = `Thanks, ${name} — message received. I'll reply by email shortly.`;
       form.reset();
