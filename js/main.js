@@ -153,18 +153,30 @@
            deterministic gradient placeholder (derived from the
            index) instead of a broken image icon. */
         const posterStyle = item.posterSrc
-          ? `style="background-image:url('${item.posterSrc}')"`
-          : `style="background-image: var(--placeholder-${(index % 4) + 1})"`;
+       function openLightbox(item) {
+    if (!lightbox || !item) return;
+    lightboxCaption.textContent = item.title;
+    
+    // فحص هل الرابط من يوتيوب أم ملف mp4
+    if (item.videoSrc.includes("youtube.com") || item.videoSrc.includes("youtu.be")) {
+      let embedUrl = item.videoSrc;
+      if (!embedUrl.includes("autoplay=1")) {
+        embedUrl += (embedUrl.includes("?") ? "&" : "?") + "autoplay=1";
+      }
+      lightboxVideo.outerHTML = `<iframe id="lightboxVideo" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; min-height:400px; border-radius:12px;"></iframe>`;
+    } else {
+      lightboxVideo.outerHTML = `<video id="lightboxVideo" src="${item.videoSrc}" controls autoplay style="width:100%; height:100%;"></video>`;
+    }
 
-        return `
-        <article class="video-card" data-index="${index}">
-          <button class="video-card__frame" ${posterStyle} aria-label="Play: ${item.title}">
-            <span class="video-card__play" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </span>
-            <span class="video-card__ratio-tag">9:16</span>
-          </button>
-          <div class="video-card__meta">
+    const updatedVideo = document.getElementById("lightboxVideo");
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+    
+    if (updatedVideo.tagName === "VIDEO") {
+      updatedVideo.play().catch(() => {});
+    }
+  }
             <p class="video-card__title">${item.title}</p>
             ${item.client ? `<p class="video-card__client">${item.client}</p>` : ""}
           </div>
