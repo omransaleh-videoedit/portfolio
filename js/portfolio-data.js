@@ -23,7 +23,7 @@ const PORTFOLIO_ITEMS = [
   {
     title: "Arabic Video Edit — High Retention",
     category: "Arabic Content",
-    videoSrc: "assets/videos/reel-01.mp4",
+ videoSrc: "https://www.youtube.com/embed/a7vG1RSG2tk",
     posterSrc: "",
     client: "Arabic Creator"
   },
