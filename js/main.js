@@ -1,6 +1,5 @@
 /* ============================================================
-   MAIN.JS
-   Everything here is vanilla JS, no build step, no dependencies.
+   MAIN.JS - FIXED LIGHTBOX MULTI-OPEN ISSUE
    ============================================================ */
 
 (function () {
@@ -177,7 +176,7 @@
   }
 
   /* ----------------------------------------------------------
-     6. LIGHTBOX (إصلاح التشغيل المتعدد بنجاح)
+     6. LIGHTBOX (المحلول بشكل أكيد وصارم)
      ---------------------------------------------------------- */
   const lightbox = document.getElementById("lightbox");
   const lightboxCaption = document.getElementById("lightboxCaption");
@@ -187,42 +186,35 @@
     if (!lightbox || !item) return;
     lightboxCaption.textContent = item.title;
 
-    let mediaContainer = lightbox.querySelector(".lightbox__media") || lightbox.querySelector(".lightbox__content");
-    let currentVid = document.getElementById("lightboxVideo");
+    // البحث عن مكان عرض الميديا (أو الشاشة السوداء)
+    let mediaContainer = lightbox.querySelector(".lightbox__media") || lightbox.querySelector(".lightbox__dialog") || lightbox;
+
+    // تنظيف أي مشغل قديم تماماً
+    const oldMedia = document.getElementById("lightboxVideo");
+    if (oldMedia) oldMedia.remove();
 
     if (item.videoSrc.includes("youtube.com") || item.videoSrc.includes("youtu.be")) {
       let embedUrl = item.videoSrc;
       if (!embedUrl.includes("autoplay=1")) {
         embedUrl += (embedUrl.includes("?") ? "&" : "?") + "autoplay=1";
       }
-      
-      const newIframe = document.createElement("iframe");
-      newIframe.id = "lightboxVideo";
-      newIframe.src = embedUrl;
-      newIframe.frameBorder = "0";
-      newIframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-      newIframe.allowFullscreen = true;
-      newIframe.style.cssText = "width:100%; height:100%; min-height:400px; border-radius:12px;";
 
-      if (currentVid) {
-        currentVid.replaceWith(newIframe);
-      } else if (mediaContainer) {
-        mediaContainer.appendChild(newIframe);
+      // إنشاء iframe جديد نضيفه للحاوية مباشرة
+      const iframeHTML = `<iframe id="lightboxVideo" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; min-height:450px; border-radius:12px; display:block;"></iframe>`;
+      
+      // إدخال الفيديو في الحاوية قبل زر الإغلاق
+      if (lightboxCaption) {
+        lightboxCaption.insertAdjacentHTML('beforebegin', iframeHTML);
+      } else {
+        mediaContainer.insertAdjacentHTML('beforeend', iframeHTML);
       }
     } else {
-      const newVideo = document.createElement("video");
-      newVideo.id = "lightboxVideo";
-      newVideo.src = item.videoSrc;
-      newVideo.controls = true;
-      newVideo.autoplay = true;
-      newVideo.style.cssText = "width:100%; height:100%;";
-
-      if (currentVid) {
-        currentVid.replaceWith(newVideo);
-      } else if (mediaContainer) {
-        mediaContainer.appendChild(newVideo);
+      const videoHTML = `<video id="lightboxVideo" src="${item.videoSrc}" controls autoplay style="width:100%; height:100%; display:block;"></video>`;
+      if (lightboxCaption) {
+        lightboxCaption.insertAdjacentHTML('beforebegin', videoHTML);
+      } else {
+        mediaContainer.insertAdjacentHTML('beforeend', videoHTML);
       }
-      newVideo.play().catch(() => {});
     }
 
     lightbox.classList.add("is-open");
@@ -236,9 +228,10 @@
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
 
-    const currentVid = document.getElementById("lightboxVideo");
-    if (currentVid) {
-      currentVid.remove(); // مسح العناصر بالكامل لتأكيد إيقاف الصوت وإمكانية إنشائها من جديد
+    // تدمير عنصر الميديا تماماً حتى لا يستمر الصوت
+    const mediaEl = document.getElementById("lightboxVideo");
+    if (mediaEl) {
+      mediaEl.remove();
     }
   }
 
