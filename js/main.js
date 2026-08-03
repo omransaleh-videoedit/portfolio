@@ -177,35 +177,57 @@
   }
 
   /* ----------------------------------------------------------
-     6. LIGHTBOX (معدل ليدعم اليوتيوب + الفيديوهات العادية)
+     6. LIGHTBOX (إصلاح التشغيل المتعدد بنجاح)
      ---------------------------------------------------------- */
   const lightbox = document.getElementById("lightbox");
-  const lightboxVideo = document.getElementById("lightboxVideo");
   const lightboxCaption = document.getElementById("lightboxCaption");
   const lightboxClose = document.getElementById("lightboxClose");
 
   function openLightbox(item) {
     if (!lightbox || !item) return;
     lightboxCaption.textContent = item.title;
-    
+
+    let mediaContainer = lightbox.querySelector(".lightbox__media") || lightbox.querySelector(".lightbox__content");
+    let currentVid = document.getElementById("lightboxVideo");
+
     if (item.videoSrc.includes("youtube.com") || item.videoSrc.includes("youtu.be")) {
       let embedUrl = item.videoSrc;
       if (!embedUrl.includes("autoplay=1")) {
         embedUrl += (embedUrl.includes("?") ? "&" : "?") + "autoplay=1";
       }
-      lightboxVideo.outerHTML = `<iframe id="lightboxVideo" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%; height:100%; min-height:400px; border-radius:12px;"></iframe>`;
+      
+      const newIframe = document.createElement("iframe");
+      newIframe.id = "lightboxVideo";
+      newIframe.src = embedUrl;
+      newIframe.frameBorder = "0";
+      newIframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      newIframe.allowFullscreen = true;
+      newIframe.style.cssText = "width:100%; height:100%; min-height:400px; border-radius:12px;";
+
+      if (currentVid) {
+        currentVid.replaceWith(newIframe);
+      } else if (mediaContainer) {
+        mediaContainer.appendChild(newIframe);
+      }
     } else {
-      lightboxVideo.outerHTML = `<video id="lightboxVideo" src="${item.videoSrc}" controls autoplay style="width:100%; height:100%;"></video>`;
+      const newVideo = document.createElement("video");
+      newVideo.id = "lightboxVideo";
+      newVideo.src = item.videoSrc;
+      newVideo.controls = true;
+      newVideo.autoplay = true;
+      newVideo.style.cssText = "width:100%; height:100%;";
+
+      if (currentVid) {
+        currentVid.replaceWith(newVideo);
+      } else if (mediaContainer) {
+        mediaContainer.appendChild(newVideo);
+      }
+      newVideo.play().catch(() => {});
     }
 
-    const updatedVideo = document.getElementById("lightboxVideo");
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
-    
-    if (updatedVideo.tagName === "VIDEO") {
-      updatedVideo.play().catch(() => {});
-    }
   }
 
   function closeLightbox() {
@@ -213,16 +235,10 @@
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
-    
+
     const currentVid = document.getElementById("lightboxVideo");
     if (currentVid) {
-      if (currentVid.tagName === "VIDEO") {
-        currentVid.pause();
-        currentVid.removeAttribute("src");
-        currentVid.load();
-      } else {
-        currentVid.src = "";
-      }
+      currentVid.remove(); // مسح العناصر بالكامل لتأكيد إيقاف الصوت وإمكانية إنشائها من جديد
     }
   }
 
@@ -230,7 +246,7 @@
     lightbox.querySelectorAll("[data-close]").forEach((el) =>
       el.addEventListener("click", closeLightbox)
     );
-    lightboxClose.addEventListener("click", closeLightbox);
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
     });
