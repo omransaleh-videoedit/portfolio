@@ -21,7 +21,7 @@
 
 const PORTFOLIO_ITEMS = [ {
     title: "AI Agent Product – Promotional Video Sample",
-    category: "English Content",
+    category: "Business coach",
     videoSrc: "https://www.youtube.com/embed/B3PTnGbNG2Q",
     posterSrc: "",
     client: "AI Product"
