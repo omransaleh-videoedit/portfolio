@@ -26,10 +26,10 @@ const PORTFOLIO_ITEMS = [ {
     posterSrc: "",
     client: "AI Product"
   },
-  {
-    title: "Arabic Video Edit — High Retention",
+{
+    title: "منتج تطوير ذات عربي",
     category: "Arabic Content",
- videoSrc: "https://www.youtube.com/embed/a7vG1RSG2tk",
+    videoSrc: "https://www.youtube.com/embed/VycFvXGr1Yc",
     posterSrc: "",
     client: "Arabic Creator"
   },
