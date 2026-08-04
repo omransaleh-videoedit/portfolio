@@ -19,7 +19,13 @@
                               or platform). Leave "" to hide it.
    ============================================================ */
 
-const PORTFOLIO_ITEMS = [
+const PORTFOLIO_ITEMS = [ {
+    title: "AI Agent Product – Promotional Video Sample",
+    category: "English Content",
+    videoSrc: "https://www.youtube.com/embed/B3PTnGbNG2Q",
+    posterSrc: "",
+    client: "AI Product"
+  },
   {
     title: "Arabic Video Edit — High Retention",
     category: "Arabic Content",
