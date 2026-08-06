@@ -1047,4 +1047,58 @@ section {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+} 
+
+/* --- Rebranding to Deep Red --- */
+
+:root {
+  --color-amber: #e60000;
+  --color-amber-dim: #990000;
+}
+
+.btn--primary {
+  background: #e60000 !important;
+  color: #ffffff !important;
+}
+.btn--primary:hover {
+  background: #ff1a1a !important;
+}
+
+.btn--ghost {
+  border-color: #e60000 !important;
+  color: #ffffff !important;
+}
+.btn--ghost:hover {
+  background: #e60000 !important;
+  border-color: #e60000 !important;
+  color: #ffffff !important;
+}
+
+.eyebrow__rec {
+  background: #e60000 !important;
+  box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.2) !important;
+}
+
+.rail-marker.is-active::before {
+  border-color: #e60000 !important;
+  background: #e60000 !important;
+  box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.2) !important;
+}
+
+.rail-marker.is-active .rail-marker__tc,
+.section-head__tc,
+.topbar__logo-dot,
+.hero__cursor {
+  color: #e60000 !important;
+}
+
+.filter-pill.is-active {
+  background: #e60000 !important;
+  border-color: #e60000 !important;
+  color: #ffffff !important;
+}
+
+.contact__links a:hover {
+  color: #e60000 !important;
+  border-color: #e60000 !important;
 }
