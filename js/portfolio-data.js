@@ -18,7 +18,13 @@
    - client     : string  — optional, shown as a small tag (e.g. niche
                               or platform). Leave "" to hide it.
    ============================================================ */
-
+const PORTFOLIO_ITEMS = [ {
+  title: "AI Agent Product - Promotional Video Sample",
+  category: "Business coach",
+  videoSrc: "https://www.youtube.com/embed/B3PTnGbNG2Q",
+  posterSrc: "",
+  client: "AI Product"
+},
 
 {
     title: "منتج تطوير ذات عربي",
