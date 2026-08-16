@@ -34,6 +34,12 @@ const PORTFOLIO_ITEMS = [ {
     client: "Arabic Creator"
   },
   {
+    title: "My Motion Graphic",
+    category: "Motion Graphics",
+    videoSrc: "https://www.youtube.com/embed/hfy4Je0vhQM",
+    posterSrc: "",
+    client: ""
+},
     title: "Arabic Podcast Clip — Subtitles & FX",
     category: "Arabic Content",
     videoSrc: "assets/videos/reel-02.mp4",
