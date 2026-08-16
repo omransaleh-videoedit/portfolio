@@ -25,7 +25,6 @@ const PORTFOLIO_ITEMS = [ {
   posterSrc: "",
   client: "AI Product"
 },
-
 {
     title: "منتج تطوير ذات عربي",
     category: "Arabic Content",
