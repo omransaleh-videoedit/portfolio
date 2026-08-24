@@ -27,7 +27,7 @@ const PORTFOLIO_ITEMS = [
     client: "AI Product"
   },
   {
-    title: "منتج تطوير ذات عربي",
+    title: "مونتاج عربي",
     category: "Arabic Content",
     videoSrc: "https://www.youtube.com/embed/VycFvXGr1Yc",
     posterSrc: "",
@@ -40,13 +40,7 @@ const PORTFOLIO_ITEMS = [
     posterSrc: "",
     client: "Motion Graphics"
   },
-  {
-    title: "Arabic Podcast Clip – Subtitles & FX",
-    category: "Arabic Content",
-    videoSrc: "assets/videos/reel-02.mp4",
-    posterSrc: "",
-    client: "Arabic Podcast"
-  },
+ 
   {
     title: "Podcast Highlight – The Focus Trap",
     category: "Podcast",
