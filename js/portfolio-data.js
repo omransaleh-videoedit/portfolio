@@ -6,6 +6,13 @@
 
 const PORTFOLIO_ITEMS = [
   {
+    title: "Arabic Business Reel",
+    category: "Business coach",
+    videoSrc: "https://www.youtube.com/embed/bAERqMMa3oc",
+    posterSrc: "",
+    client: "Business Coach"
+  },
+  {
     title: "Business Growth Short",
     category: "Business coach",
     videoSrc: "https://www.youtube.com/embed/VgD7roq0IO0",
