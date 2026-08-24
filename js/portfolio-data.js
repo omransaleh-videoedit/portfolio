@@ -6,7 +6,7 @@
 
 const PORTFOLIO_ITEMS = [
   {
-    title: "Arabic Business Reel",
+    title: "my video editing nich coaching",
     category: "Business coach",
     videoSrc: "https://www.youtube.com/embed/bAERqMMa3oc",
     posterSrc: "",
