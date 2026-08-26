@@ -39,48 +39,5 @@ const PORTFOLIO_ITEMS = [
     videoSrc: "https://www.youtube.com/embed/hfy4Je0vhQM",
     posterSrc: "",
     client: "Motion Graphics"
-  },
- 
-  {
-    title: "Podcast Highlight – The Focus Trap",
-    category: "Podcast",
-    videoSrc: "assets/videos/reel-01.mp4",
-    posterSrc: "",
-    client: "Coaching podcast"
-  },
-  {
-    title: "Founder Story – 60-Second Cut",
-    category: "Personal Branding",
-    videoSrc: "assets/videos/reel-02.mp4",
-    posterSrc: "",
-    client: "Business coach"
-  },
-  {
-    title: "5 Mistakes New Students Make",
-    category: "Educator",
-    videoSrc: "assets/videos/reel-03.mp4",
-    posterSrc: "",
-    client: "Online educator"
-  },
-  {
-    title: "Behind the Scenes – Launch Week",
-    category: "Personal Branding",
-    videoSrc: "assets/videos/reel-04.mp4",
-    posterSrc: "",
-    client: "Digital creator"
-  },
-  {
-    title: "Podcast Clip – Cold Open Hook",
-    category: "Podcast",
-    videoSrc: "assets/videos/reel-05.mp4",
-    posterSrc: "",
-    client: "Interview podcast"
-  },
-  {
-    title: "Quick Tip – Caption Style Test",
-    category: "Social",
-    videoSrc: "assets/videos/reel-06.mp4",
-    posterSrc: "",
-    client: "Personal account"
   }
 ];
