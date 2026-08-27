@@ -34,6 +34,13 @@ const PORTFOLIO_ITEMS = [
     client: "Arabic Creator"
   },
   {
+    title: "مونتاج عربي جديد",
+    category: "Arabic Content",
+    videoSrc: "https://www.youtube.com/embed/CrBp9_rsmd8",
+    posterSrc: "",
+    client: "Arabic Creator"
+  },
+  {
     title: "My Motion Graphic",
     category: "Motion Graphics",
     videoSrc: "https://www.youtube.com/embed/hfy4Je0vhQM",
