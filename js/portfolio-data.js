@@ -34,7 +34,7 @@ const PORTFOLIO_ITEMS = [
     client: "Arabic Creator"
   },
   {
-    title: "مونتاج عربي جديد",
+    title: "مونتاج العقارات",
     category: "Arabic Content",
     videoSrc: "https://www.youtube.com/embed/CrBp9_rsmd8",
     posterSrc: "",
