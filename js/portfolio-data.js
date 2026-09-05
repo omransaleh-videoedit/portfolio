@@ -6,6 +6,13 @@
 
 const PORTFOLIO_ITEMS = [
   {
+    title: "Who is Omran & What Can He Do",
+    category: "Business coach",
+    videoSrc: "Intro.Mp4010.mp4",
+    posterSrc: "",
+    client: "Omran - Intro"
+  },
+  {
     title: "my video editing nich coaching",
     category: "Business coach",
     videoSrc: "https://www.youtube.com/embed/bAERqMMa3oc",
