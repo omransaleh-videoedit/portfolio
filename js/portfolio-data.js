@@ -5,7 +5,13 @@
    ========================================================================== */
 
 const PORTFOLIO_ITEMS = [
-
+  {
+    title: "How to Edit Motivational Content",
+    category: "Motivational Editing",
+    videoSrc: "https://www.youtube.com/embed/WUDTwLxaXQs",
+    posterSrc: "",
+    client: "Motivational Content"
+  },
   {
     title: "my video editing nich coaching",
     category: "Business coach",
