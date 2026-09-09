@@ -159,7 +159,21 @@
     });
   }
 
-  /* 7. FOOTER YEAR */
+  /* 7. INTRO VIDEO RESET ON PAUSE / END */
+  const introVideo = document.getElementById("introVideo");
+  if (introVideo) {
+    introVideo.addEventListener("pause", () => {
+      introVideo.currentTime = 0;
+      introVideo.load();
+    });
+
+    introVideo.addEventListener("ended", () => {
+      introVideo.currentTime = 0;
+      introVideo.load();
+    });
+  }
+
+  /* 8. FOOTER YEAR */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
