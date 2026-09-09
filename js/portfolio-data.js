@@ -6,7 +6,7 @@
 
 const PORTFOLIO_ITEMS = [
   {
-    title: "How to Edit Motivational Content",
+    title: "Style Motivational Content",
     category: "Motivational Editing",
     videoSrc: "https://www.youtube.com/embed/WUDTwLxaXQs",
     posterSrc: "",
