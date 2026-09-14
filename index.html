@@ -1,202 +1,273 @@
-<section class="hero" id="hero">
-  <div class="hero__waveform" aria-hidden="true" id="heroWaveform"></div>
-  <div class="hero__scanline" aria-hidden="true"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omran Saleh | Professional Video Editor & Short-Form Expert</title>
+  <meta name="title" content="Omran Saleh | Professional Video Editor & Short-Form Expert">
+  <meta name="description" content="Official portfolio of Omran Saleh (عمران صالح) - Top Short-Form Video Editor specializing in viral content, high retention editing, podcasts, and personal branding.">
+  <meta name="keywords" content="Omran Saleh, Imran Saleh, عمران صالح, Omran Saleh video editor, Imran Saleh video edit, عمران صالح مونتير, video editor portfolio, viral video editor">
+  <meta name="author" content="Omran Saleh">
+  <meta name="robots" content="index, follow">
 
-  <div class="hero__inner">
-    <p class="eyebrow"><span class="eyebrow__rec" aria-hidden="true"></span>SHORT-FORM VIDEO EDITOR</p>
-    <h1 class="hero__headline">
-      Every second<br />
-      earns its place<span class="hero__cursor" aria-hidden="true">|</span>
-    </h1>
-    <p class="hero__sub">
-      I edit podcasts, personal-branding content, and social videos for coaches,
-      educators, and creators who need their message watched to the end — not scrolled past.
-    </p>
-    <div class="hero__actions">
-      <a href="#portfolio" class="btn btn--primary">Watch the edits</a>
-      <a href="#contact" class="btn btn--ghost">Start a project</a>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omransaleh-videoedit.github.io/portfolio/">
+  <meta name="google-site-verification" content="_krfZn4GKFFhVDe7n3gHm9kZIogDXRmpr0oURjcHguk" />
+  <meta property="og:title" content="Omran Saleh | Professional Video Editor">
+  <meta property="og:description" content="Portfolio of Omran Saleh (عمران صالح) - High Retention & Viral Video Editing.">
+  <meta name="description" content="Omran is a short-form video editor specializing in podcasts, personal branding content, and social media videos for coaches, educators, and digital creators." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css?v=1.1" />
+  <link rel="icon" type="image/jpeg" href="profile (2).jpg">
+</head>
+<body>
+
+  <nav class="playhead-rail" id="playheadRail" aria-label="Page sections">
+    <div class="playhead-rail__track">
+      <div class="playhead-rail__fill" id="railFill"></div>
     </div>
-  </div>
+    <ul class="playhead-rail__markers">
+      <li><a href="#hero" class="rail-marker is-active" data-section="hero"><span class="rail-marker__tc">00:00:00</span><span class="rail-marker__label">Opening</span></a></li>
+      <li><a href="#about" class="rail-marker" data-section="about"><span class="rail-marker__tc">00:00:18</span><span class="rail-marker__label">About</span></a></li>
+      <li><a href="#services" class="rail-marker" data-section="services"><span class="rail-marker__tc">00:00:47</span><span class="rail-marker__label">Services</span></a></li>
+      <li><a href="#portfolio" class="rail-marker" data-section="portfolio"><span class="rail-marker__tc">00:01:20</span><span class="rail-marker__label">Portfolio</span></a></li>
+      <li><a href="#why" class="rail-marker" data-section="why"><span class="rail-marker__tc">00:02:05</span><span class="rail-marker__label">Why Me</span></a></li>
+      <li><a href="#contact" class="rail-marker" data-section="contact"><span class="rail-marker__tc">00:02:40</span><span class="rail-marker__label">Contact</span></a></li>
+    </ul>
+  </nav>
 
-  <div class="hero__hud" aria-hidden="true">
-    <span class="hero__hud-row"><span>FORMAT</span><span>9:16 · 1080×1920</span></span>
-    <span class="hero__hud-row"><span>STATUS</span><span class="hero__hud-live">RENDERING PORTFOLIO…</span></span>
-  </div>
+  <div class="mobile-progress" aria-hidden="true"><div class="mobile-progress__fill" id="mobileRailFill"></div></div>
 
-  <a href="#about" class="hero__scroll-cue" aria-label="Scroll to About section">
-    <span></span>
-  </a>
-</section>
+  <header class="topbar">
+    <a href="#hero" class="topbar__logo">OMRAN<span class="topbar__logo-dot">.</span></a>
+    <a href="#contact" class="topbar__cta">Book a call</a>
+  </header>
 
-<section class="about" id="about">
-  <div class="section-head">
-    <p class="section-head__tc">00:00:18</p>
-    <h2 class="section-head__title">About</h2>
-  </div>
+  <main>
 
-  <div class="about__grid" style="display: flex; flex-direction: column; align-items: center; max-width: 850px; margin: 0 auto; gap: 2rem;">
-    <div class="about__portrait" style="width: 100%;">
-      <div class="about__portrait-frame" style="width: 100%; aspect-ratio: 16/9; height: auto;">
-        <video id="introVideo" controls controlsList="nodownload nofullscreen" disablePictureInPicture oncontextmenu="return false;" poster="profile (2).jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
-          <source src="Intro.Mp4010.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <span class="about__portrait-tag">OMRAN</span>
+    <section class="hero" id="hero">
+      <div class="hero__waveform" aria-hidden="true" id="heroWaveform"></div>
+      <div class="hero__scanline" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow"><span class="eyebrow__rec" aria-hidden="true"></span>SHORT-FORM VIDEO EDITOR</p>
+        <h1 class="hero__headline">
+          Every second<br />
+          earns its place<span class="hero__cursor" aria-hidden="true">|</span>
+        </h1>
+        <p class="hero__sub">
+          I edit podcasts, personal-branding content, and social videos for coaches,
+          educators, and creators who need their message watched to the end — not scrolled past.
+        </p>
+        <div class="hero__actions">
+          <a href="#portfolio" class="btn btn--primary">Watch the edits</a>
+          <a href="#contact" class="btn btn--ghost">Start a project</a>
+        </div>
       </div>
-      <div class="about__portrait-caption" style="text-align: center; margin-top: 8px;">Cutting since day one. Still counting frames.</div>
-    </div>
 
-    <div class="about__copy" style="text-align: center;">
-      <p>
-        I'm Omran, a long-form and short-form video editor who turns raw footage into high-converting visual assets. My focus isn't just making clean cuts — it's crafting high-retention content that aligns with your brand identity and drives real revenue.
+      <div class="hero__hud" aria-hidden="true">
+        <span class="hero__hud-row"><span>FORMAT</span><span>9:16 · 1080×1920</span></span>
+        <span class="hero__hud-row"><span>STATUS</span><span class="hero__hud-live">RENDERING PORTFOLIO…</span></span>
+      </div>
+
+      <a href="#about" class="hero__scroll-cue" aria-label="Scroll to About section">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-head">
+        <p class="section-head__tc">00:00:18</p>
+        <h2 class="section-head__title">About</h2>
+      </div>
+
+      <div class="about__grid" style="display: flex; flex-direction: column; align-items: center; max-width: 850px; margin: 0 auto; gap: 2rem;">
+        <div class="about__portrait" style="width: 100%;">
+          <div class="about__portrait-frame" style="width: 100%; aspect-ratio: 16/9; height: auto;">
+            <video id="introVideo" controls controlsList="nodownload nofullscreen" disablePictureInPicture oncontextmenu="return false;" poster="profile (2).jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+              <source src="Intro.Mp4010.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <span class="about__portrait-tag">OMRAN</span>
+          </div>
+          <div class="about__portrait-caption" style="text-align: center; margin-top: 8px;">Cutting since day one. Still counting frames.</div>
+        </div>
+
+        <div class="about__copy" style="text-align: center;">
+          <p>
+            I'm Omran, a long-form and short-form video editor who turns raw footage into high-converting visual assets. My focus isn't just making clean cuts — it's crafting high-retention content that aligns with your brand identity and drives real revenue.
+          </p>
+          <p>
+            From full-length YouTube videos and podcasts to high-impact Reels and Shorts, I edit with a deep understanding of audience psychology: retaining attention from the first second, reinforcing your brand authority, and positioning your product to sell seamlessly. Fast-paced, branded.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-head">
+        <p class="section-head__tc">00:00:47</p>
+        <h2 class="section-head__title">Services</h2>
+      </div>
+
+      <div class="clip-grid">
+        <article class="clip-card">
+          <div class="clip-card__bar" aria-hidden="true"></div>
+          <h3 class="clip-card__title">Podcast Editing</h3>
+          <p class="clip-card__text">
+            Long-form recordings cut into a clean, well-paced episode — filler removed,
+            pacing tightened, ready to publish or repurpose into clips.
+          </p>
+        </article>
+
+        <article class="clip-card">
+          <div class="clip-card__bar clip-card__bar--teal" aria-hidden="true"></div>
+          <h3 class="clip-card__title">Personal Branding Content</h3>
+          <p class="clip-card__text">
+            Talking-head and behind-the-scenes footage shaped into content that sounds
+            like you and builds trust with your audience, one video at a time.
+          </p>
+        </article>
+
+        <article class="clip-card">
+          <div class="clip-card__bar" aria-hidden="true"></div>
+          <h3 class="clip-card__title">Shorts &amp; Reels</h3>
+          <p class="clip-card__text">
+            Punchy, retention-first cuts built for TikTok, Reels, and Shorts —
+            strong hook in the first second, no dead air after it.
+          </p>
+        </article>
+
+        <article class="clip-card">
+          <div class="clip-card__bar clip-card__bar--teal" aria-hidden="true"></div>
+          <h3 class="clip-card__title">Captions &amp; Motion Graphics</h3>
+          <p class="clip-card__text">
+            Animated captions, text pop-ons, and lower thirds that keep the eye
+            moving without ever feeling cluttered.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="section-head">
+        <p class="section-head__tc">00:01:20</p>
+        <h2 class="section-head__title">Portfolio</h2>
+      </div>
+      <p class="portfolio__intro">
+        A reel, not a résumé. Sound on.
       </p>
-      <p>
-        From full-length YouTube videos and podcasts to high-impact Reels and Shorts, I edit with a deep understanding of audience psychology: retaining attention from the first second, reinforcing your brand authority, and positioning your product to sell seamlessly. Fast-paced, branded.
-      </p>
+
+      <div class="portfolio__filters" id="portfolioFilters" role="tablist" aria-label="Filter portfolio by category"></div>
+      <div class="portfolio__grid" id="portfolioGrid"></div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="section-head">
+        <p class="section-head__tc">00:02:05</p>
+        <h2 class="section-head__title">Why Work With Me</h2>
+      </div>
+
+      <div class="why__grid">
+        <div class="why__row">
+          <span class="why__tick" aria-hidden="true">✓</span>
+          <div>
+            <h3 class="why__title">Fast, dependable turnaround</h3>
+            <p class="why__text">Clear timelines up front, no chasing for updates — you always know when your video lands.</p>
+          </div>
+        </div>
+        <div class="why__row">
+          <span class="why__tick" aria-hidden="true">✓</span>
+          <div>
+            <h3 class="why__title">Edited for retention, not just polish</h3>
+            <p class="why__text">Every cut is a decision about whether the viewer keeps watching. Pretty isn't the goal — watched-through is.</p>
+          </div>
+        </div>
+        <div class="why__row">
+          <span class="why__tick" aria-hidden="true">✓</span>
+          <div>
+            <h3 class="why__title">Platform-native delivery</h3>
+            <p class="why__text">Correct aspect ratio, safe zones, burned-in captions — exported ready to upload, not ready to reformat.</p>
+          </div>
+        </div>
+        <div class="why__row">
+          <span class="why__tick" aria-hidden="true">✓</span>
+          <div>
+            <h3 class="why__title">Direct communication</h3>
+            <p class="why__text">You talk to the person actually editing your footage — feedback and revisions included, no middlemen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section-head">
+        <p class="section-head__tc">00:02:40</p>
+        <h2 class="section-head__title">Let's Cut Something Great</h2>
+      </div>
+
+      <div class="contact__grid">
+        <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b058a1c8-7e1e-4405-94b2-8e1b7ff9399f">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="message">Tell me about your project</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Send message</button>
+          <p class="contact__status" id="contactStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__aside">
+          <p class="contact__aside-lead">Prefer DMs? Same energy, faster reply.</p>
+          <ul class="contact__links">
+            <li>
+              <a href="https://wa.me/201020439552" target="_blank" rel="noopener">WhatsApp</a>
+            </li>
+            <li>
+              <a href="mailto:omransaleh.business@gmail.com">omransaleh.business@gmail.com</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/omran-saleh-852821348/" target="_blank" rel="noopener">LinkedIn</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/omransaleh_videoedit" target="_blank" rel="noopener">Instagram</a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@OmranSaleeh" target="_blank" rel="noopener">YouTube</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Omran — Short-Form Video Editor. Built frame by frame.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__panel">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close video">✕</button>
+      <div class="lightbox__media" id="lightboxMedia"></div>
+      <p class="lightbox__caption" id="lightboxCaption"></p>
     </div>
   </div>
-</section>
 
-<section class="services" id="services">
-  <div class="section-head">
-    <p class="section-head__tc">00:00:47</p>
-    <h2 class="section-head__title">Services</h2>
-  </div>
-
-  <div class="clip-grid">
-    <article class="clip-card">
-      <div class="clip-card__bar" aria-hidden="true"></div>
-      <h3 class="clip-card__title">Podcast Editing</h3>
-      <p class="clip-card__text">
-        Long-form recordings cut into a clean, well-paced episode — filler removed,
-        pacing tightened, ready to publish or repurpose into clips.
-      </p>
-    </article>
-
-    <article class="clip-card">
-      <div class="clip-card__bar clip-card__bar--teal" aria-hidden="true"></div>
-      <h3 class="clip-card__title">Personal Branding Content</h3>
-      <p class="clip-card__text">
-        Talking-head and behind-the-scenes footage shaped into content that sounds
-        like you and builds trust with your audience, one video at a time.
-      </p>
-    </article>
-
-    <article class="clip-card">
-      <div class="clip-card__bar" aria-hidden="true"></div>
-      <h3 class="clip-card__title">Shorts &amp; Reels</h3>
-      <p class="clip-card__text">
-        Punchy, retention-first cuts built for TikTok, Reels, and Shorts —
-        strong hook in the first second, no dead air after it.
-      </p>
-    </article>
-
-    <article class="clip-card">
-      <div class="clip-card__bar clip-card__bar--teal" aria-hidden="true"></div>
-      <h3 class="clip-card__title">Captions &amp; Motion Graphics</h3>
-      <p class="clip-card__text">
-        Animated captions, text pop-ons, and lower thirds that keep the eye
-        moving without ever feeling cluttered.
-      </p>
-    </article>
-  </div>
-</section>
-
-<section class="portfolio" id="portfolio">
-  <div class="section-head">
-    <p class="section-head__tc">00:01:20</p>
-    <h2 class="section-head__title">Portfolio</h2>
-  </div>
-  <p class="portfolio__intro">
-    A reel, not a résumé. Sound on.
-  </p>
-
-  <div class="portfolio__filters" id="portfolioFilters" role="tablist" aria-label="Filter portfolio by category"></div>
-  <div class="portfolio__grid" id="portfolioGrid"></div>
-</section>
-
-<section class="why" id="why">
-  <div class="section-head">
-    <p class="section-head__tc">00:02:05</p>
-    <h2 class="section-head__title">Why Work With Me</h2>
-  </div>
-
-  <div class="why__grid">
-    <div class="why__row">
-      <span class="why__tick" aria-hidden="true">✓</span>
-      <div>
-        <h3 class="why__title">Fast, dependable turnaround</h3>
-        <p class="why__text">Clear timelines up front, no chasing for updates — you always know when your video lands.</p>
-      </div>
-    </div>
-    <div class="why__row">
-      <span class="why__tick" aria-hidden="true">✓</span>
-      <div>
-        <h3 class="why__title">Edited for retention, not just polish</h3>
-        <p class="why__text">Every cut is a decision about whether the viewer keeps watching. Pretty isn't the goal — watched-through is.</p>
-      </div>
-    </div>
-    <div class="why__row">
-      <span class="why__tick" aria-hidden="true">✓</span>
-      <div>
-        <h3 class="why__title">Platform-native delivery</h3>
-        <p class="why__text">Correct aspect ratio, safe zones, burned-in captions — exported ready to upload, not ready to reformat.</p>
-      </div>
-    </div>
-    <div class="why__row">
-      <span class="why__tick" aria-hidden="true">✓</span>
-      <div>
-        <h3 class="why__title">Direct communication</h3>
-        <p class="why__text">You talk to the person actually editing your footage — feedback and revisions included, no middlemen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="section-head">
-    <p class="section-head__tc">00:02:40</p>
-    <h2 class="section-head__title">Let's Cut Something Great</h2>
-  </div>
-
-  <div class="contact__grid">
-    <form class="contact__form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="b058a1c8-7e1e-4405-94b2-8e1b7ff9399f">
-      <div class="field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name" />
-      </div>
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email" />
-      </div>
-      <div class="field">
-        <label for="message">Tell me about your project</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn btn--primary btn--full">Send message</button>
-      <p class="contact__status" id="contactStatus" role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="contact__aside">
-      <p class="contact__aside-lead">Prefer DMs? Same energy, faster reply.</p>
-      <ul class="contact__links">
-        <li>
-          <a href="https://wa.me/201020439552" target="_blank" rel="noopener">WhatsApp</a>
-        </li>
-        <li>
-          <a href="mailto:omransaleh.business@gmail.com">omransaleh.business@gmail.com</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/omran-saleh-852821348/" target="_blank" rel="noopener">LinkedIn</a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/omransaleh_videoedit" target="_blank" rel="noopener">Instagram</a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/@OmranSaleeh" target="_blank" rel="noopener">YouTube</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+  <script src="js/portfolio-data.js?v=1.1"></script>
+  <script src="js/main.js?v=1.1"></script>
+</body>
+</html>
