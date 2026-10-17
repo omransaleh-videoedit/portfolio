@@ -6,6 +6,13 @@
 
 const PORTFOLIO_ITEMS = [
   {
+    title: "Arabic Reel Edit",
+    category: "Arabic Content",
+    videoSrc: "https://www.youtube.com/embed/Vz1haB7Pig0",
+    posterSrc: "",
+    client: "Arabic Creator"
+  },
+  {
     title: "Style Motivational Content",
     category: "Motivational Editing",
     videoSrc: "https://www.youtube.com/embed/WUDTwLxaXQs",
