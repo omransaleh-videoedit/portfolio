@@ -6,6 +6,13 @@
 
 const PORTFOLIO_ITEMS = [
   {
+    title: "Business Coach Short",
+    category: "Business coach",
+    videoSrc: "https://www.youtube.com/embed/cZ5Oi0VvI_s",
+    posterSrc: "",
+    client: "Business Coach"
+  },
+  {
     title: "Arabic Reel Edit",
     category: "Arabic Content",
     videoSrc: "https://www.youtube.com/embed/Vz1haB7Pig0",
@@ -18,6 +25,13 @@ const PORTFOLIO_ITEMS = [
     videoSrc: "https://www.youtube.com/embed/WUDTwLxaXQs",
     posterSrc: "",
     client: "Motivational Content"
+  },
+  {
+    title: "Business Coach Short",
+    category: "Business coach",
+    videoSrc: "https://www.youtube.com/embed/cZ5Oi0VvI_s",
+    posterSrc: "",
+    client: "Business Coach"
   },
   {
     title: "my video editing nich coaching",
