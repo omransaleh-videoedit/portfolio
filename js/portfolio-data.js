@@ -6,7 +6,7 @@
 
 const PORTFOLIO_ITEMS = [
   {
-    title: "Business Coach Short",
+    title: "Dr. Andrew Huberman — Video Editing & Motion Graphics",
     category: "Business coach",
     videoSrc: "https://www.youtube.com/embed/cZ5Oi0VvI_s",
     posterSrc: "",
@@ -25,13 +25,6 @@ const PORTFOLIO_ITEMS = [
     videoSrc: "https://www.youtube.com/embed/WUDTwLxaXQs",
     posterSrc: "",
     client: "Motivational Content"
-  },
-  {
-    title: "Business Coach Short",
-    category: "Business coach",
-    videoSrc: "https://www.youtube.com/embed/cZ5Oi0VvI_s",
-    posterSrc: "",
-    client: "Business Coach"
   },
   {
     title: "my video editing nich coaching",
