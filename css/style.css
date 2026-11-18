@@ -21,32 +21,31 @@
 
 /* ----------------------------------------------------------------
    1. DESIGN TOKENS
-   Palette is grounded in the subject: a near-black "editing suite"
-   background, with a warm amber ("tally light" / record indicator)
-   and cool teal (waveform / color-scope) as the two accents — a
-   nod to the classic teal-and-orange grade every video editor
-   knows, rather than a generic single neon accent.
+   Royal Blue identity: a near-black navy "editing suite" background,
+   with royal blue (primary accent) and sky cyan (secondary accent).
+   NOTE: variable names (--color-amber / --color-teal) are kept so the
+   HTML and JS keep working; --color-amber is now the primary BLUE.
    ---------------------------------------------------------------- */
 :root {
   /* Color */
-  --color-bg: #0b0c0e;
-  --color-bg-alt: #131418;
-  --color-bg-raised: #191a1f;
-  --color-line: rgba(242, 239, 234, 0.09);
-  --color-line-strong: rgba(242, 239, 234, 0.18);
-  --color-text: #f2efea;
-  --color-text-dim: #9a9ba1;
-  --color-text-faint: #64656b;
-  --color-amber: #e8a33d;
-  --color-amber-dim: #8a6a34;
-  --color-teal: #3ed9c7;
-  --color-teal-dim: #2b7d73;
+  --color-bg: #0a0c12;
+  --color-bg-alt: #0f131c;
+  --color-bg-raised: #151b27;
+  --color-line: rgba(220, 230, 250, 0.09);
+  --color-line-strong: rgba(220, 230, 250, 0.18);
+  --color-text: #f2f5fb;
+  --color-text-dim: #9aa6bd;
+  --color-text-faint: #5f6b82;
+  --color-amber: #2f6bff;
+  --color-amber-dim: #1b3fa0;
+  --color-teal: #38bdf8;
+  --color-teal-dim: #1d6f9a;
 
   /* Placeholder gradients used when a portfolio item has no poster image */
-  --placeholder-1: linear-gradient(160deg, #2a1e12 0%, #0b0c0e 70%);
-  --placeholder-2: linear-gradient(160deg, #10221f 0%, #0b0c0e 70%);
-  --placeholder-3: linear-gradient(160deg, #241a10 0%, #171018 80%);
-  --placeholder-4: linear-gradient(160deg, #0d1f1c 0%, #0b0c0e 75%);
+  --placeholder-1: linear-gradient(160deg, #101a33 0%, #0a0c12 70%);
+  --placeholder-2: linear-gradient(160deg, #0d2233 0%, #0a0c12 70%);
+  --placeholder-3: linear-gradient(160deg, #141a38 0%, #0f1220 80%);
+  --placeholder-4: linear-gradient(160deg, #0b1f2e 0%, #0a0c12 75%);
 
   /* Type */
   --font-display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -171,20 +170,22 @@ section {
 
 .btn--primary {
   background: var(--color-amber);
-  color: #12100a;
+  color: #ffffff;
 }
 .btn--primary:hover {
   transform: translateY(-2px);
-  background: #f0b45a;
+  background: #5b8dff;
+  box-shadow: 0 8px 24px rgba(47, 107, 255, 0.35);
 }
 
 .btn--ghost {
-  border: 1px solid var(--color-line-strong);
-  color: var(--color-text);
+  border: 1px solid var(--color-amber);
+  color: #ffffff;
 }
 .btn--ghost:hover {
-  border-color: var(--color-teal);
-  color: var(--color-teal);
+  background: var(--color-amber);
+  border-color: var(--color-amber);
+  color: #ffffff;
 }
 
 .btn--full {
@@ -207,7 +208,7 @@ section {
   height: 7px;
   border-radius: 50%;
   background: var(--color-amber);
-  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.15);
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.22);
   animation: pulse 1.8s ease-in-out infinite;
 }
 
@@ -223,7 +224,7 @@ section {
 .section-head__tc {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--color-amber);
+  color: #4f86ff;
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
@@ -312,7 +313,7 @@ section {
 .rail-marker.is-active::before {
   border-color: var(--color-amber);
   background: var(--color-amber);
-  box-shadow: 0 0 0 4px rgba(232, 163, 61, 0.18);
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.22);
 }
 
 .rail-marker__tc {
@@ -323,7 +324,7 @@ section {
 }
 
 .rail-marker.is-active .rail-marker__tc {
-  color: var(--color-amber);
+  color: #4f86ff;
 }
 
 .rail-marker__label {
@@ -363,7 +364,7 @@ section {
   justify-content: space-between;
   padding: 1.4rem clamp(1.5rem, 6vw, 5rem);
   backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(11, 12, 14, 0.85), rgba(11, 12, 14, 0));
+  background: linear-gradient(180deg, rgba(10, 12, 18, 0.85), rgba(10, 12, 18, 0));
 }
 
 .topbar__logo {
@@ -373,7 +374,7 @@ section {
   letter-spacing: 0.06em;
 }
 .topbar__logo-dot {
-  color: var(--color-amber);
+  color: #4f86ff;
 }
 
 .topbar__cta {
@@ -453,7 +454,7 @@ section {
 }
 
 .hero__cursor {
-  color: var(--color-amber);
+  color: #4f86ff;
   animation: blink 1s step-end infinite;
   font-weight: 400;
 }
@@ -548,7 +549,7 @@ section {
   border: 1px solid var(--color-line-strong);
   padding: 0.3rem 0.6rem;
   border-radius: 2px;
-  background: rgba(11, 12, 14, 0.6);
+  background: rgba(10, 12, 18, 0.6);
 }
 .about__portrait-caption {
   margin-top: 0.9rem;
@@ -685,7 +686,7 @@ section {
 .filter-pill.is-active {
   background: var(--color-amber);
   border-color: var(--color-amber);
-  color: #12100a;
+  color: #ffffff;
 }
 
 .portfolio__grid {
@@ -723,8 +724,8 @@ section {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(11, 12, 14, 0.55);
-  border: 1px solid rgba(242, 239, 234, 0.35);
+  background: rgba(10, 12, 18, 0.55);
+  border: 1px solid rgba(242, 245, 251, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -734,7 +735,7 @@ section {
 }
 .video-card__frame:hover .video-card__play {
   background: var(--color-amber);
-  color: #12100a;
+  color: #ffffff;
 }
 
 .video-card__ratio-tag {
@@ -746,7 +747,7 @@ section {
   letter-spacing: 0.05em;
   padding: 0.2rem 0.45rem;
   border-radius: 2px;
-  background: rgba(11, 12, 14, 0.6);
+  background: rgba(10, 12, 18, 0.6);
   border: 1px solid var(--color-line-strong);
   color: var(--color-text-dim);
 }
@@ -778,7 +779,7 @@ section {
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(6, 6, 8, 0.88);
+  background: rgba(5, 7, 12, 0.88);
   backdrop-filter: blur(4px);
 }
 .lightbox__panel {
@@ -923,8 +924,8 @@ section {
   transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 .contact__links a:hover {
-  color: var(--color-amber);
-  border-color: var(--color-amber);
+  color: #4f86ff;
+  border-color: #4f86ff;
 }
 
 /* ----------------------------------------------------------------
@@ -1047,58 +1048,4 @@ section {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-} 
-
-/* --- Rebranding to Deep Red --- */
-
-:root {
-  --color-amber: #e60000;
-  --color-amber-dim: #990000;
-}
-
-.btn--primary {
-  background: #e60000 !important;
-  color: #ffffff !important;
-}
-.btn--primary:hover {
-  background: #ff1a1a !important;
-}
-
-.btn--ghost {
-  border-color: #e60000 !important;
-  color: #ffffff !important;
-}
-.btn--ghost:hover {
-  background: #e60000 !important;
-  border-color: #e60000 !important;
-  color: #ffffff !important;
-}
-
-.eyebrow__rec {
-  background: #e60000 !important;
-  box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.2) !important;
-}
-
-.rail-marker.is-active::before {
-  border-color: #e60000 !important;
-  background: #e60000 !important;
-  box-shadow: 0 0 0 4px rgba(230, 0, 0, 0.2) !important;
-}
-
-.rail-marker.is-active .rail-marker__tc,
-.section-head__tc,
-.topbar__logo-dot,
-.hero__cursor {
-  color: #e60000 !important;
-}
-
-.filter-pill.is-active {
-  background: #e60000 !important;
-  border-color: #e60000 !important;
-  color: #ffffff !important;
-}
-
-.contact__links a:hover {
-  color: #e60000 !important;
-  border-color: #e60000 !important;
 }
